@@ -1,0 +1,1 @@
+// This can initialize the app, setup event listeners, and be the main entry point.

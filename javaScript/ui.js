@@ -1,0 +1,1 @@
+// Will contain functions to manipulate and interact with the UI, such as showing the loading element, handling the text field input, and revealing the image download link.
