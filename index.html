@@ -11,7 +11,7 @@
 </head>
     <body>
         <header>
-            <div class="container">
+            <div class="header-container">
                 <img src="/images/logo.png" alt="Logo" class="logo">
             </div>
         </header>
@@ -22,7 +22,7 @@
                     <h2>Password Generator Powered by AI</h2>
                     <p>At PictaPass we use AI to generate passphrases and images to help you remember a secure password.</p>
                     <div class="button-group">
-                        <a href="#" class="btn-primary">Get Started</a>
+                        <button class="btn-primary" id="btn-start">Get Started</button>
                         <a href="#" class="btn-secondary">Learn More</a>
                     </div>
                 </div>
@@ -36,7 +36,52 @@
                 
             </div>
         </section>
+
+        <section class="password-generator" style="display: none;">
+            <div class="container flex-container">
+                <div class="pw-gen-content">
+                    <div class="button-group">
+                        <button class="btn-primary" id="btn-generate">Generate Password</button>
+                    </div>
+                </div>
+            </div>    
+        </section>
+
+        <section class="password-show" style="display: none;">
+            <div class="container flex-container">
+                <div class="pw-gen-content">
+                    <h3>Sample Password</h3>
+                    <p>Sample Passphrase</p>
+                    <div class="button-group">
+                        <button class="btn-primary" id="btn-pw-check">Next</button>
+                    </div>
+                </div>
+            </div>    
+        </section>
+
+        <section class="password-check" style="display: none;"> 
+            <div class="container flex-container">
+                <div class="pw-check-content">
+                    <h3>What's your password?</h3>
+                    <input type="text"></input>
+                    <div class="button-group">
+                        <button class="btn-primary" id="btn-pw-verify">Check Password</button>
+                        <button class="btn-secondary" id="btn-reveal-hint">Reveal passphrase</button>
+                    </div>
+                </div>
+                <div class="pw-hint-content">
+                    <h3 class="hint-phrase" style="display: none;">Sample Passphrase</h3>
+                    <button class="btn-secondary" id="btn-hide-hint">Hide passphrase</button>    
+                </div>
+            </div>   
+        </section>
+
+        <section class="image-display" style="display: none;">...</section>
+
+        <section class="image-download" style="display: none;">...</section>
+
         
     </body>
+    <script src="/javaScript/main.js"></script>
 </html>
 
