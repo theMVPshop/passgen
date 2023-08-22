@@ -1,44 +1,7 @@
-//To isolate API-related logic, including the actual fetch call.
-// require('dotenv').config()
 
-async function fetchImage(prompt) {
-    const form = new FormData();
-    // put prompt variable as second argument in the next line
-    form.append('prompt', 'Bill Gates, eating sushi, in a purple hoodie, at the forest, pixar, vibrant, long shot angle, soft smooth lighting');
-    form.append('samples', '4');
-    form.append('negprompt', 'deformed, bad anatomy, disfigured, poorly drawn face, mutation, mutated, extra limb, ugly, disgusting, poorly drawn hands, missing limb, floating limbs, disconnected limbs, malformed hands, blurry, mutated hands, fingers');
-    form.append('style', '3d-model');
-
-    let body = {
-        prompt: 'Bill Gates, eating sushi, in a purple hoodie, at the forest, pixar, vibrant, long shot angle, soft smooth lighting',
-        samples: '4',
-        negprompt: 'deformed, bad anatomy, disfigured, poorly drawn face, mutation, mutated, extra limb, ugly, disgusting, poorly drawn hands, missing limb, floating limbs, disconnected limbs, malformed hands, blurry, mutated hands, fingers',
-        style: '3d-model'
-    }
-
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            accept: 'application/json'
-            },
-        body: JSON.stringify(form)
-        };
-    console.log(options.body)
-    try {
-        const res = await fetch("http://localhost:5000/", options)
-        if (!res.ok) {
-            throw new Error(`Failed to fetch. Status code: ${res.status}`);
-          }
-        const data = await res.json()
-        console.log(data)
-        } catch (err) {
-            console.log(err)
-        }
-}
 
 async function imageFetch (prompt) {
-    // const token = process.env.MONSTER_API_KEY
+    // const token = your_token
     const form = new FormData();
     // put prompt variable as second argument in the next line
     form.append('prompt', 'Bill Gates, eating sushi, in a purple hoodie, at the forest, pixar, vibrant, long shot angle, soft smooth lighting');
@@ -50,12 +13,12 @@ async function imageFetch (prompt) {
     method: 'POST',
     headers: {
         accept: 'application/json', 
-        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImJjYWYyZjI3ZGJmZDk1MTEyZDcyYTI0N2M2YTY1NjVjIiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MDI6MzYuNzQ2NDE5In0.r21gAOrQFeNuUP_0xs_VwFcPSf2_yAWeBzdEn9hyX58`
+        authorization: `Bearer ${token}`
     }
     };
 
     options.body = form;
-    const url = " https://api.monsterapi.ai/v1/generate/txt2img"
+    const url = "https://api.monsterapi.ai/v1/generate/txt2img"
     try {
         const res = await fetch(url, options)
         if (!res.ok) {
