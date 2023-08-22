@@ -8,7 +8,7 @@ async function imageFetch (prompt) {
     const form = new FormData();
     // put prompt variable as second argument in the next line
     form.append('prompt', 'Taylor Swift, eating sushi, in a purple hoodie, at the forest, pixar, vibrant, long shot angle, soft smooth lighting');
-    form.append('samples', '1');
+    form.append('samples', '4');
     form.append('negprompt', 'deformed, bad anatomy, disfigured, poorly drawn face, mutation, mutated, extra limb, ugly, disgusting, poorly drawn hands, missing limb, floating limbs, disconnected limbs, malformed hands, blurry, mutated hands, fingers');
     form.append('style', '3d-model');
 
