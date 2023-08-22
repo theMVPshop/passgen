@@ -1,7 +1,7 @@
 
 
 async function imageFetch (prompt) {
-    // const token = your_token
+    // const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjUyN2JmZDkzMjc1MDdmODNiYjkzMTQ2Y2Y0YjAxY2E1IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MTk6NTMuODI3NzEwIn0.BUtNbN2WKl2hvdGCeKHN1rUVPusQcir1CXIs4nRjhzA"
     const form = new FormData();
     // put prompt variable as second argument in the next line
     form.append('prompt', 'Bill Gates, eating sushi, in a purple hoodie, at the forest, pixar, vibrant, long shot angle, soft smooth lighting');
@@ -13,7 +13,7 @@ async function imageFetch (prompt) {
     method: 'POST',
     headers: {
         accept: 'application/json', 
-        authorization: `Bearer ${token}`
+        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjUyN2JmZDkzMjc1MDdmODNiYjkzMTQ2Y2Y0YjAxY2E1IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MTk6NTMuODI3NzEwIn0.BUtNbN2WKl2hvdGCeKHN1rUVPusQcir1CXIs4nRjhzA`
     }
     };
 
@@ -22,6 +22,7 @@ async function imageFetch (prompt) {
     try {
         const res = await fetch(url, options)
         if (!res.ok) {
+            console.log(res.json())
             throw new Error(`Failed to fetch. Status code: ${res.status}`);
           }
         const data = await res.json()
@@ -30,11 +31,11 @@ async function imageFetch (prompt) {
         const statusURL = data.status_url
         while (!completed) {
             const statusOptions = {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     accept: 'application/json',
                     'content-type': 'multipart/form-data',
-                    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImJjYWYyZjI3ZGJmZDk1MTEyZDcyYTI0N2M2YTY1NjVjIiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MDI6MzYuNzQ2NDE5In0.r21gAOrQFeNuUP_0xs_VwFcPSf2_yAWeBzdEn9hyX58`
+                    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjUyN2JmZDkzMjc1MDdmODNiYjkzMTQ2Y2Y0YjAxY2E1IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MTk6NTMuODI3NzEwIn0.BUtNbN2WKl2hvdGCeKHN1rUVPusQcir1CXIs4nRjhzA`
                     }
                 };
             try {
@@ -57,7 +58,8 @@ async function imageFetch (prompt) {
                         break;
                     case "COMPLETED":
                         completed = true
-                        images = response.result.output
+                        console.log(res2.result)
+                        images = data2.result.output
                         break;
                     default:
                         completed = true

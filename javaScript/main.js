@@ -67,8 +67,8 @@ generateButton.addEventListener('click', function() {
 
 });
 
-passwordButton.addEventListener('click', function(){
-    console.log("Short Button Clicked!")
-    const shortPassword = generatedPasswordSpan.textContent;
+// passwordButton.addEventListener('click', function(){
+//     console.log("Short Button Clicked!")
+//     const shortPassword = generatedPasswordSpan.textContent;
     
-});
+// });
