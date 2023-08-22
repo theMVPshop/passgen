@@ -149,3 +149,16 @@ function generateMnemonic() {
   document.getElementById('pictopassBtn').addEventListener('click', () => {
     document.getElementById('pictopass').style.display = 'block';
   });
+
+function generateRandomPassword (animals, clothes, length) {
+  let password = "";
+
+  for (let i = 0; i < length; i++) {
+    const randomArray = Math.random() < 0.5 ? animals : clothes;
+    const randomWord = randomArray[Math.floor(Math.random() * randomArray.length)];
+    password += randomWord;
+  }
+
+  return password;
+}
+
