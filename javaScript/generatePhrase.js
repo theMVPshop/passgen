@@ -51,3 +51,16 @@ export function phraseToPassword(phrase) {
     return password;
   }
 
+  const generateButton = document.getElementById('btn-start');
+
+  generateButton.addEventListener('click', function() {
+    console.log("Button Clicked");
+    
+    const password = generateRandomPassword(celebrities, clothing, colors, food, places, 6)
+    console.log("Generate Password", password);
+
+    generatedPasswordSpan.textContent = password;
+
+
+
+});

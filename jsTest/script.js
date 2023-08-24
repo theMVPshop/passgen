@@ -161,4 +161,3 @@ function generateRandomPassword (animals, clothes, length) {
 
   return password;
 }
-
