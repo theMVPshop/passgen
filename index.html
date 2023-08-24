@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="./css/reset.css"/>
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css"/>
-
-    <script src="/javaScript/main.js" defer></script>
+    <script type="module" src="/javaScript/main.js" defer></script>
     <script src="./javaScript/imageFetch.js"></script>
 </head>
     <body>
@@ -83,12 +82,14 @@
             </div>   
         </section>
 
-        <section class="image-display" style="display: none;">...</section>
-
+        <section class="image-display" style="display: none;">
+            <div class="container flex-container">
+                <div class="loadingSpinner"></div>
+            </div>
+        </section>
         <section class="image-download" style="display: none;">...</section>
 
         
     </body>
-    
 </html>
 

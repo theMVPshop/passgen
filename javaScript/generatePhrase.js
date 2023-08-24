@@ -1,9 +1,9 @@
 // imports of the arrays in the data folder
-import celebrities from "../data/celebrities"
-import clothing from "../data/clothing"
-import colors from "../data/colors"
-import food from "../data/food"
-import places from "../data/places"
+import celebrities from "../data/celebrities.js"
+import clothing from "../data/clothing.js"
+import colors from "../data/colors.js"
+import food from "../data/food.js"
+import places from "../data/places.js"
 
 // function to choose a word from an array at random
 export const selectWord = (arr) => {
