@@ -11,11 +11,8 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  color: var(--white)
-  /* background-color: var(--purple); */
-}
-body {	
-	background: linear-gradient(to right bottom, var(--blue), var(--purple), var(--teal), var(--white) );
+  color: var(--white);
+  background: linear-gradient(to right bottom, var(--blue), var(--purple), var(--teal), var(--white) );
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
@@ -49,15 +46,13 @@ header {
   background-color: rgba(230, 230, 250, .2);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
-  padding: 100px; 
+  padding: 80px; 
 }
 
 .hero {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  padding: 40px 0;
 }
 
 .flex-container {
@@ -68,9 +63,8 @@ header {
 
 .hero-content {
   flex: 1;
-  /* padding-right: 50px; */
   padding-left: 50px;
-
+  transform: translateY(-10%);
 }
 
 .hero-image {
@@ -138,7 +132,7 @@ button {
   outline-offset: 2px;
 }
 
-
+.hero,
 .password-generator, 
 .password-show, 
 .password-check {
@@ -181,9 +175,18 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 h3{
   font-size: 1.5em;
 }
+
+input[type="password"] {
+  width: 200px;  
+  height: 20px;
+  padding: 10px; 
+  font-size: 14px; 
+  border: 2px solid #aaa;  /* Adjust this value as needed */
+    border-radius: 5px; 
+}
+
