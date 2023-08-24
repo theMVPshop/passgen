@@ -1,6 +1,6 @@
 :root {
-  --purple: #7851A9;
-  --white: #E6E6FA;
+  --purple: rgb(120, 81, 169);
+  --white: rgb(230, 230, 250);
   --blue: #191970;
   --orange: #e45f2b;
   --teal: #008080;
@@ -11,7 +11,23 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: var(--purple);
+  color: var(--white)
+  /* background-color: var(--purple); */
+}
+body {	
+	background: linear-gradient(to right bottom, var(--blue), var(--purple), var(--teal), var(--white) );
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+body:before{
+	content:'';
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: -1;
+	background: linear-gradient(to right bottom, rgba(120, 81, 169, 0.1), rgb(25, 25, 112, .8) 40%);
 }
 
 .header-container {
@@ -27,6 +43,13 @@ header {
 
 .logo {
   max-width: 150px;
+}
+
+.card-background {
+  background-color: rgba(230, 230, 250, .2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 100px; 
 }
 
 .hero {
@@ -47,6 +70,7 @@ header {
   flex: 1;
   /* padding-right: 50px; */
   padding-left: 50px;
+
 }
 
 .hero-image {
@@ -150,7 +174,6 @@ button {
   color: white;
 }
 .pw-check-content {
-  background-color: rgba(25, 25, 112, 0.8);
   height: 40%;
   width: 30%;
   margin: auto;
@@ -158,8 +181,6 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: 5%;
 
 }
 
