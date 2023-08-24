@@ -1,10 +1,34 @@
 // This can be a place to setup event listeners and be the main entry point that makes calls to other functions in other files.
+import { generatePhrase, generatePrompt, phraseToPassword } from "./generatePhrase.js";
+import { imageFetch } from "./imageFetch.js";
+let abortController = new AbortController();
+
+// event listener to abort unresolved fetch requests on page refresh
+window.addEventListener('beforeunload', () => {
+    abortController.abort();
+  });
+
 
 
 // event listener for "Get Started" button
 document.querySelector('#btn-start').addEventListener('click', function() {
     document.querySelector('.hero').style.display = 'none';
     document.querySelector('.password-generator').style.display = 'block';
+
+    imageFetch(prompt, abortController)
+        .then((res) => {
+            let imageDisplay = document.querySelector('.image-display')
+            imageDisplay.removeChild(imageDisplay.firstChild)
+            let div = document.createElement('div')
+            div.classList.add('container')
+            div.classList.add('flex-container')
+            for (let i = 0; i > res.length; i++) {
+                let img = document.createElement('img')
+                img.src = res[i]
+                div.appendChild(img)
+            }
+            imageDisplay.appendChild(div)
+        })
 });
 
 //event listener for generate pw
