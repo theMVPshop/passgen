@@ -45,7 +45,8 @@ header {
 
 .hero-content {
   flex: 1;
-  padding-right: 50px;
+  /* padding-right: 50px; */
+  padding-left: 50px;
 }
 
 .hero-image {
@@ -113,6 +114,13 @@ button {
   outline-offset: 2px;
 }
 
+
+.password-generator, 
+.password-show, 
+.password-check {
+  height: 100vh;
+}
+
 /* password generator section */
 
 .password-generator .flex-container {
@@ -121,6 +129,7 @@ button {
   justify-content: center;
   align-items: center;
 }
+
 
 /* show password & passphrase section */
 
@@ -162,4 +171,23 @@ button {
   transform: translate3d(-50%, -50%, 0);
   will-change: transform;
   margin: auto;
+}
+  color: white;
+}
+.pw-check-content {
+  background-color: rgba(25, 25, 112, 0.8);
+  height: 40%;
+  width: 30%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5%;
+
+}
+
+h3{
+  font-size: 1.5em;
 }
