@@ -53,6 +53,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translateY(-10%);
 }
 
 .flex-container {
@@ -64,7 +65,7 @@ header {
 .hero-content {
   flex: 1;
   padding-left: 50px;
-  transform: translateY(-10%);
+  
 }
 
 .hero-image {
