@@ -1,0 +1,89 @@
+.main-container {
+    max-width: 1200px; /* Adjust to your liking */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px; /* Add some padding so content doesn't touch the edges on small screens */
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.about-text {
+    padding: 0 5% 5% 5%;
+    font-size: 1.2em;
+    max-width: 800px;
+    /* text-align: center; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.full-accordion {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.0em;
+}
+
+.accordion {
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    background-color: rgba(150, 148, 157, 0.4);
+    /* rgba(230, 230, 250, .7); */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    padding: 0 10px;
+   
+}
+
+.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign */
+    float: right;
+    color: white !important;
+   
+}
+
+.accordion.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign */
+    color: white !important;
+}
+
+.img-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.img-container img {
+    width: 90%; 
+    max-width: 1200px; 
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(150, 148, 157, 0.8);
+    /* rgba(230, 230, 250, .7); */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 40px; 
+}
+
+.img-container p {
+    font-size: 0.8em; /* Adjust this for the image caption font size */
+    margin-top: 5px;
+}

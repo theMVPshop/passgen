@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#btn-start').addEventListener('click', function(event) {
         event.preventDefault();
         document.querySelector('.password-generator').style.display = 'block';
-        document.querySelector('.password-generator').scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.password-generator').scrollIntoView({ behavior: 'smooth' })
+    
     });
 
 
@@ -40,6 +41,7 @@ document.querySelector('#btn-start').addEventListener('click', function() {
             imageDisplay.appendChild(div)
         })
 });
+
 
     // Event listener for "Generate Password" button
     document.querySelector('#btn-generate').addEventListener('click', function(event) {
