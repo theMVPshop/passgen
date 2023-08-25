@@ -18,7 +18,7 @@ export const generatePhrase = () => {
     let foodItem = selectWord(food)
     let place = selectWord(places)
 
-    const phrase = `${celebrity} ate ${foodItem} in a ${color} ${wearing} at ${place}`
+    const phrase = `${celebrity} ate ${foodItem} while wearing ${color} ${wearing} at ${place}`
     
     return phrase
 }

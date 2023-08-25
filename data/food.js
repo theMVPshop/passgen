@@ -5,7 +5,7 @@ const food = [
     "strawberries", 
     "spaghetti", 
     "broccoli", 
-    "mushroom", 
+    "mushrooms", 
     "waffles", 
     "pizza", 
     "nachos", 
