@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="./css/reset.css"/>
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css"/>
-    <script src="./javaScript/imageFetch.js"></script>
+    <script type="module" src="./javaScript/imageFetch.js"></script>
     <script type="module" src="/passgen/javaScript/main.js" defer></script>
     
 </head>
     <body>
         <header>
             <div class="header-container">
-                <!-- <img src="/images/logo.png" alt="Logo" class="logo"> -->
+                <img src="./images/logo.png" alt="Logo" class="logo">
             </div>
         </header>
 
@@ -24,7 +24,8 @@
                     <h2>Password Generator Powered by AI</h2>
                     <p>At PictaPass we use AI to generate passphrases and images to help you remember a secure password.</p>
                     <div class="button-group">
-                        <button class="btn-primary" id="btn-start">Get Started</button>
+                        <a href="#password-generator-section" class="btn-primary" id="btn-start">Get Started</a>
+
                         <a href="#" class="btn-secondary">Learn More</a>
                     </div>
                 </div>
@@ -43,7 +44,7 @@
             <div class="container flex-container">
                 <div class="pw-gen-content">
                     <div class="button-group">
-                        <button class="btn-primary" id="btn-generate">Generate Password</button>
+                        <a href="#password-show-section" class="btn-primary" id="btn-generate">Generate Password</a>
                     </div>
                 </div>
             </div>    
@@ -52,10 +53,10 @@
         <section class="password-show" style="display: none;">
             <div class="container flex-container">
                 <div class="pw-gen-content">
-                    <h3>Sample Password:<span id="generatedPassword"></span></h3>
-                    <p>Sample Passphrase</p>
+                    <h3>Sample Passphrase: <span id="generatedPhrase"></span></h3>
+                    <p>Sample Password: <span id="generatedPassword"></span></p>
                     <div class="button-group">
-                        <button class="btn-primary" id="btn-pw-check">Next</button>
+                        <a href="#password-check-section" class="btn-primary" id="btn-pw-check">Next</a>
                     </div>
                 </div>
             </div>    
@@ -65,21 +66,28 @@
             <div class="container flex-container">
                 <div class="pw-check-content">
                     <h3>What's your password?</h3>
-                    <input type="text"></input>
+                    <br>
+                    <input type="password"></input>
                     <div class="button-group">
                         <button class="btn-primary" id="btn-pw-verify">Check Password</button>
+                        <br>
+                        <br>
                         <button class="btn-secondary" id="btn-reveal-hint">Reveal passphrase</button>
                     </div>
+                    <div class="pw-hint-content">
+                        <h3 class="hint-phrase" style="display: none;">Sample Passphrase: <span id="revealPhrase"></span></h3>
+                        <button class="btn-secondary" id="btn-hide-hint" style="display: none">Hide passphrase</button>    
+                    </div>
                 </div>
-                <div class="pw-hint-content">
-                    <h3 class="hint-phrase" style="display: none;">Sample Passphrase</h3>
-                    <button class="btn-secondary" id="btn-hide-hint">Hide passphrase</button>    
-                </div>
+                
             </div>   
         </section>
 
-        <section class="image-display" style="display: none;">...</section>
-
+        <section class="image-display" style="display: none;">
+            <div class="container flex-container">
+                <div class="loadingSpinner"></div>
+            </div>
+        </section>
         <section class="image-download" style="display: none;">...</section>
 
         

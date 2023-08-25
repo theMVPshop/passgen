@@ -2,17 +2,18 @@
 // imageFetch takes in a prompt, and returns an array of links to the hosted images.
 // It takes awhile to come back, so console logs keep track of the progress.
 // You should await the resolution of this function, then do something with the returned array.
-async function imageFetch (prompt) {
+export async function imageFetch (prompt, controller) {
     // const token = "Your Token Here"
     const form = new FormData();
     // put prompt variable as second argument in the next line
-    form.append('prompt', 'Taylor Swift, eating sushi, in a purple hoodie, at the forest, pixar, vibrant, long shot angle, soft smooth lighting');
+    form.append('prompt', `${prompt}`);
     form.append('samples', '4');
     form.append('negprompt', 'deformed, bad anatomy, disfigured, poorly drawn face, mutation, mutated, extra limb, ugly, disgusting, poorly drawn hands, missing limb, floating limbs, disconnected limbs, malformed hands, blurry, mutated hands, fingers');
     form.append('style', '3d-model');
 
     const options = {
     method: 'POST',
+    signal: controller.signal,
     headers: {
         accept: 'application/json', 
         authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjUyN2JmZDkzMjc1MDdmODNiYjkzMTQ2Y2Y0YjAxY2E1IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MTk6NTMuODI3NzEwIn0.BUtNbN2WKl2hvdGCeKHN1rUVPusQcir1CXIs4nRjhzA`
@@ -34,6 +35,7 @@ async function imageFetch (prompt) {
         while (!completed) {
             const statusOptions = {
                 method: 'GET',
+                signal: controller.signal,
                 headers: {
                     accept: 'application/json',
                     'content-type': 'multipart/form-data',
