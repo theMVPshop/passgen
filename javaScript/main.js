@@ -1,7 +1,7 @@
-// This can be a place to setup event listeners and be the main entry point that makes calls to other functions in other files.
 import { generatePhrase, generatePrompt, phraseToPassword } from "./generatePhrase.js";
 import { imageFetch } from "./imageFetch.js";
 let abortController = new AbortController();
+const phrase = generatePhrase();
 
 // let phrase = generatePhrase()
 // let password = phraseToPassword(phrase)
@@ -22,21 +22,21 @@ window.addEventListener('beforeunload', () => {
   });
 
 
-document.addEventListener('DOMContentLoaded', function() {
     // When the page loads, we set up all the event listeners
 
     // Event listener for "Get Started" button
-    document.querySelector('#btn-start').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.querySelector('.password-generator').style.display = 'block';
-        document.querySelector('.password-generator').scrollIntoView({ behavior: 'smooth' });
-    });
+    // document.querySelector('#btn-start').addEventListener('click', function(event) {
+    //     event.preventDefault();
+    //     document.querySelector('.password-generator').style.display = 'block';
+    //     document.querySelector('.password-generator').scrollIntoView({ behavior: 'smooth' });
+    //   });
 
 
 // event listener for "Get Started" button
 document.querySelector('#btn-start').addEventListener('click', function() {
     document.querySelector('.hero').style.display = 'none';
     document.querySelector('.password-generator').style.display = 'block';
+
     // document.querySelector('#generatedPassword').innerHTML = password
     // document.querySelector('#passwordToPhrase').innerHTML = phrase
 
@@ -104,42 +104,51 @@ document.querySelector('#btn-start').addEventListener('click', function() {
 });
 
 
+// //event listener to bring to pw check section
+document.querySelector('#btn-pw-check').addEventListener('click', function() {
+    document.querySelector('.password-show').style.display = 'none';
+    document.querySelector('.password-check').style.display = 'block';
+    document.querySelector('#btn-hide-hint').style.display = 'none';
+});
+
+// // event listener to show pw hint
+document.querySelector('#btn-reveal-hint').addEventListener('click', function() {
+    document.querySelector('.hint-phrase').style.display = 'block';
+    document.querySelector('#btn-reveal-hint').style.display = 'none';
+    document.querySelector('#btn-hide-hint').style.display = 'block'; 
+});
 
 
-// function generateRandomPassword(animals, clothes, colors, length) {
-//     let password = "";
-    
-//     for (let i = 0; i < length; i++) {
-//         const randomArray = Math.random() < 0.5 ? animals : colors || clothes;
-//         const randomWord = randomArray[Math.floor(Math.random() * randomArray.length)];
-//         password += randomWord + "/";
-//     }
-    
-//     return password;
-// }
+const getStartedButton = document.getElementById("btn-start");
+const generatedPhraseSpan = document.getElementById("generatedPhrase");
+const generatedPasswordSpan = document.getElementById("generatedPassword");
+const revealPasswordSpan = document.getElementById("revealPhrase");
 
-// const generateButton = document.getElementById('btn-start');
-// const generatedPasswordSpan = document.getElementById('generatedPassword');
-// // const passwordButton = document.getElementById('passwordButton');
-// // const generateShortPasswordSpan = document.getElementById('generateShortPassword')
+  getStartedButton.addEventListener('click', function(){
+    console.log("Generated Button Clicked");
 
-// generateButton.addEventListener('click', function() {
-//     console.log("Button Clicked");
-//     const animalsArray = ["dog", "cat", "elephant", "lion", "tiger", "giraffe", "zebra", "bear", "rabbit", "monkey"];
-//     const clothesArray = ["shirt", "pants", "jacket", "dress", "hat", "shoes", "socks", "scarf", "gloves", "skirt"];
-//     const colorsArray = ["red", "orange", "yellow", "green", "blue", "purple", "gray", "black", "pink", "white"];
-    
-//     const password = generateRandomPassword(animalsArray, clothesArray, colorsArray, 6)
-//     console.log("Generate Password", password);
+    const newPhrase = generatePhrase(phrase);
+    console.log("Generated Phrase", newPhrase)
 
-//     generatedPasswordSpan.textContent = password;
+    const generatedPassword = phraseToPassword(phrase);
+    console.log("Generated Password", generatedPassword)
 
+    generatedPhraseSpan.textContent = newPhrase;
+    generatedPasswordSpan.textContent = generatedPassword;
+    revealPasswordSpan.textContent = newPhrase;
+  })
 
-
-// });
-
-// passwordButton.addEventListener('click', function(){
-//     console.log("Short Button Clicked!")
-//     const shortPassword = generatedPasswordSpan.textContent;
-    
-// });
+    // imageFetch(prompt, abortController)
+    //     .then((res) => {
+    //         let imageDisplay = document.querySelector('.image-display')
+    //         imageDisplay.removeChild(imageDisplay.firstChild)
+    //         let div = document.createElement('div')
+    //         div.classList.add('container')
+    //         div.classList.add('flex-container')
+    //         for (let i = 0; i > res.length; i++) {
+    //             let img = document.createElement('img')
+    //             img.src = res[i]
+    //             div.appendChild(img)
+    //         }
+    //         imageDisplay.appendChild(div)
+    //     });

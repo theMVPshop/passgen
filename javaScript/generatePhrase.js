@@ -50,4 +50,3 @@ export function phraseToPassword(phrase) {
   
     return password;
   }
-
