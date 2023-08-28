@@ -1,13 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>About PictaPass</title>
-    <link rel="stylesheet" href="./css/reset.css"/>
-    <link rel="stylesheet" href="./css/styles.css"/>
-</head>
-<body>
-    
-</body>
+    <link
+      rel="stylesheet"
+      href="./css/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./CSS/about.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <img
+          src="/images/logo.png"
+          alt="Logo"
+          class="logo"
+        />
+      </div>
+    </header>
+    <div class="main-container">
+        <h1>
+        Why Mixed-Character Passwords Matter
+    </h1>
+    <section class="about-text">
+        <p>
+      In the digital age, passwords act as the first line of defense against
+      cyber threats. Just as you wouldn't use a flimsy lock on your front door,
+      you shouldn't skimp on password strength. 
+      <br>
+      <br>
+      Here's why incorporating
+      letters, numbers, and symbols in your passwords is so crucial:
+    </p>
+</section>
+    <section class="full-accordion">
+    <button class="accordion">1. Increased Complexity</button>
+    <div class="accordion-content">
+      <p>
+        At a fundamental level, each additional type of character (uppercase
+        letter, lowercase letter, number, symbol) you introduce into your
+        password increases its complexity exponentially. This means that a
+        password using all these types of characters will be exponentially
+        harder for hackers to crack than one using just one type.
+      </p>
+    </div>
+
+    <button class="accordion">2. Fends Off Brute-Force Attacks</button>
+    <div class="accordion-content">
+      <p>
+        By adding numbers and symbols, you increase the possible combinations
+        into the billions or even trillions, making brute-force attacks
+        impractical.
+      </p>
+    </div>
+    <button class="accordion">3. Thwarts Dictionary Attacks</button>
+    <div class="accordion-content">
+      <p>
+        Some cybercriminals use dictionary attacks, where every word in the
+        dictionary is tried as a potential password. Combining letters with
+        numbers and symbols ensures your password isn't a standard word, making
+        these attacks ineffective.
+      </p>
+    </div>
+
+    <button class="accordion">4. Defies Predictability</button>
+    <div class="accordion-content">
+      <p>
+        We humans are creatures of habit, often using predictable phrases or
+        sequences. Incorporating a mix of characters ensures that even if a
+        hacker can predict part of your password, the mixed characters will
+        still present a formidable challenge.
+      </p>
+    </div>
+    <button class="accordion">5. Complies with Best Practices</button>
+    <div class="accordion-content">
+        <p>
+        Many online platforms and security experts recommend (or even mandate)
+        using a combination of character types. By following this practice, you
+        ensure compatibility and security across various platforms.
+      </p>
+      <br>
+    </div>
+    <button class="accordion">6. Boosts Overall Security</button>
+    <div class="accordion-content">
+      <p>
+        Every added layer of complexity to your password amplifies the security
+        of all your online accounts, from social media to banking. It’s a simple
+        step with a massive impact.
+      </p>
+    </div>
+</section>
+<br>
+<section class="about-text">
+    <p>
+         While it might seem tedious to create and remember passwords with letters,
+         numbers, and symbols, the enhanced security they offer is well worth the
+         effort. Think of it as constructing a digital fortress—one that ensures
+         your online presence remains safeguarded against the rising tide of cyber
+         threats.
+       </p>
+   </section>
+
+    <div class="img-container">
+      <img
+        src="/images/hashedPwChart.png"
+        alt="Description of Image"
+      />
+      <p>Image credit: <a href="https://specopssoft.com/blog/best-password-practices-to-defend-against-modern-cracking-attacks/" target="_blank">Specops Software</a></p>
+    </div>
+</div>
+
+
+    <script>
+      const accordions = document.querySelectorAll(".accordion");
+
+      accordions.forEach((accordion) => {
+        accordion.addEventListener("click", function () {
+          this.classList.toggle("active");
+          const panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
