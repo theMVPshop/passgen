@@ -17,13 +17,13 @@ function verifyPassword () {
 }
 
 // event listener to abort unresolved fetch requests on page refresh
-window.addEventListener('beforeunload', () => {
-    abortController.abort();
-  });
+    window.addEventListener('beforeunload', () => {
+        abortController.abort();
+    });
 
 
     // When the page loads, we set up all the event listeners
-
+    document.addEventListener('DOMContentLoaded', function() {
     // Event listener for "Get Started" button
     // document.querySelector('#btn-start').addEventListener('click', function(event) {
     //     event.preventDefault();
@@ -33,7 +33,7 @@ window.addEventListener('beforeunload', () => {
 
 
 // event listener for "Get Started" button
-document.querySelector('#btn-start').addEventListener('click', function() {
+    document.querySelector('#btn-start').addEventListener('click', function() {
     document.querySelector('.hero').style.display = 'none';
     document.querySelector('.password-generator').style.display = 'block';
 
