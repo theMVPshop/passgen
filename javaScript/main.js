@@ -106,23 +106,23 @@ document.querySelector('#btn-start').addEventListener('click', function() {
 
 
 
-// //event listener to bring to pw check section
-document.querySelector('#btn-pw-check').addEventListener('click', function() {
-    document.querySelector('.password-show').style.display = 'none';
-    document.querySelector('.password-check').style.display = 'block';
-    document.querySelector('#btn-hide-hint').style.display = 'none';
-});
+// // //event listener to bring to pw check section
+// document.querySelector('#btn-pw-check').addEventListener('click', function() {
+//     document.querySelector('.password-show').style.display = 'none';
+//     document.querySelector('.password-check').style.display = 'block';
+//     document.querySelector('#btn-hide-hint').style.display = 'none';
+// });
 
-// // event listener to show pw hint
-document.querySelector('#btn-reveal-hint').addEventListener('click', function() {
-    document.querySelector('.hint-phrase').style.display = 'block';
-    document.querySelector('#btn-reveal-hint').style.display = 'none';
-    document.querySelector('#btn-hide-hint').style.display = 'block'; 
-});
+// // // event listener to show pw hint
+// document.querySelector('#btn-reveal-hint').addEventListener('click', function() {
+//     document.querySelector('.hint-phrase').style.display = 'block';
+//     document.querySelector('#btn-reveal-hint').style.display = 'none';
+//     document.querySelector('#btn-hide-hint').style.display = 'block'; 
+// });
 
 
 const getStartedButton = document.getElementById("btn-start");
-const generatedPhraseSpan = document.getElementById("generatedPhrase");
+// const generatedPhraseSpan = document.getElementById("generatedPhrase");
 const generatedPasswordSpan = document.getElementById("generatedPassword");
 const revealPasswordSpan = document.getElementById("revealPhrase");
 
@@ -135,7 +135,7 @@ const revealPasswordSpan = document.getElementById("revealPhrase");
     const generatedPassword = phraseToPassword(phrase);
     console.log("Generated Password", generatedPassword)
 
-    generatedPhraseSpan.textContent = newPhrase;
+    // generatedPhraseSpan.textContent = newPhrase;
     generatedPasswordSpan.textContent = generatedPassword;
     revealPasswordSpan.textContent = newPhrase;
   })
