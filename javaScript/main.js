@@ -1,29 +1,29 @@
 import { generatePhrase, generatePrompt, phraseToPassword } from "./generatePhrase.js";
 import { imageFetch } from "./imageFetch.js";
 let abortController = new AbortController();
-const phrase = generatePhrase();
 
-// let phrase = generatePhrase()
-// let password = phraseToPassword(phrase)
-// let passwordInput = ""
+
+let newPhrase = generatePhrase()
+let generatedPassword = phraseToPassword(newPhrase)
+let passwordInput = ""
 
 function verifyPassword () {
     console.log(passwordInput)
-    console.log(password)
-    if(passwordInput === password) {
+    console.log(generatedPassword)
+    if(passwordInput === generatedPassword) {
         console.log("Correct!")
     }
     else console.log("Incorrect.")
 }
 
 // event listener to abort unresolved fetch requests on page refresh
-window.addEventListener('beforeunload', () => {
-    abortController.abort();
-  });
+    window.addEventListener('beforeunload', () => {
+        abortController.abort();
+    });
 
 
     // When the page loads, we set up all the event listeners
-
+    document.addEventListener('DOMContentLoaded', function() {
     // Event listener for "Get Started" button
     document.querySelector('#btn-start').addEventListener('click', function(event) {
         event.preventDefault();
@@ -34,14 +34,14 @@ window.addEventListener('beforeunload', () => {
 
 
 // event listener for "Get Started" button
-document.querySelector('#btn-start').addEventListener('click', function() {
+    document.querySelector('#btn-start').addEventListener('click', function() {
     document.querySelector('.hero').style.display = 'none';
     document.querySelector('.password-generator').style.display = 'block';
 
-    // document.querySelector('#generatedPassword').innerHTML = password
-    // document.querySelector('#passwordToPhrase').innerHTML = phrase
+    document.querySelector('#generatedPassword').innerHTML = generatedPassword
+    document.querySelector('#passwordToPhrase').innerHTML = newPhrase
 
-    imageFetch(generatePrompt(phrase), abortController)
+    imageFetch(generatePrompt(newPhrase), abortController)
         .then((res) => {
             let imageDisplay = document.querySelector('.image-display')
             imageDisplay.removeChild(imageDisplay.firstChild)
@@ -76,7 +76,7 @@ document.querySelector('#btn-start').addEventListener('click', function() {
     // Event listener to show pw hint
     document.querySelector('#btn-reveal-hint').addEventListener('click', function() {
         document.querySelector('.hint-phrase').style.display = 'block';
-        // document.querySelector('.hint-phrase').innerHTML = phrase;
+        document.querySelector('.hint-phrase').innerHTML = newPhrase;
         document.querySelector('#btn-reveal-hint').style.display = 'none';
         document.querySelector('#btn-hide-hint').style.display = 'block';
     });
@@ -105,41 +105,22 @@ document.querySelector('#btn-start').addEventListener('click', function() {
     });
 
 
+// const getStartedButton = document.getElementById("btn-start");
+// const generatedPasswordSpan = document.getElementById("generatedPassword");
+// const revealPasswordSpan = document.getElementById("revealPhrase");
 
-// //event listener to bring to pw check section
-document.querySelector('#btn-pw-check').addEventListener('click', function() {
-    document.querySelector('.password-show').style.display = 'none';
-    document.querySelector('.password-check').style.display = 'block';
-    document.querySelector('#btn-hide-hint').style.display = 'none';
+//   getStartedButton.addEventListener('click', function(){
+//     console.log("Generated Button Clicked");
+
+//     const newPhrase = generatePhrase(phrase);
+//     console.log("Generated Phrase", newPhrase)
+
+//     const generatedPassword = phraseToPassword(phrase);
+//     console.log("Generated Password", generatedPassword)
+
+//   })
+
 });
-
-// // event listener to show pw hint
-document.querySelector('#btn-reveal-hint').addEventListener('click', function() {
-    document.querySelector('.hint-phrase').style.display = 'block';
-    document.querySelector('#btn-reveal-hint').style.display = 'none';
-    document.querySelector('#btn-hide-hint').style.display = 'block'; 
-});
-
-
-const getStartedButton = document.getElementById("btn-start");
-const generatedPhraseSpan = document.getElementById("generatedPhrase");
-const generatedPasswordSpan = document.getElementById("generatedPassword");
-const revealPasswordSpan = document.getElementById("revealPhrase");
-
-  getStartedButton.addEventListener('click', function(){
-    console.log("Generated Button Clicked");
-
-    const newPhrase = generatePhrase(phrase);
-    console.log("Generated Phrase", newPhrase)
-
-    const generatedPassword = phraseToPassword(phrase);
-    console.log("Generated Password", generatedPassword)
-
-    generatedPhraseSpan.textContent = newPhrase;
-    generatedPasswordSpan.textContent = generatedPassword;
-    revealPasswordSpan.textContent = newPhrase;
-  })
-
     // imageFetch(prompt, abortController)
     //     .then((res) => {
     //         let imageDisplay = document.querySelector('.image-display')
