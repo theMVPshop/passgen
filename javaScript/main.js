@@ -33,11 +33,11 @@ window.addEventListener('beforeunload', () => {
     });
 
 
-// event listener for "Get Started" button
-document.querySelector('#btn-start').addEventListener('click', function() {
-    document.querySelector('.hero').style.display = 'none';
-    document.querySelector('.password-generator').style.display = 'block';
-
+    // event listener for "Get Started" button
+    document.querySelector('#btn-start').addEventListener('click', function() {
+        document.querySelector('.hero').style.display = 'none';
+        document.querySelector('.password-generator').style.display = 'block';
+        
     // document.querySelector('#generatedPassword').innerHTML = password
     // document.querySelector('#passwordToPhrase').innerHTML = phrase
 
