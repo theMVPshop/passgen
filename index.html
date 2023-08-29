@@ -70,7 +70,7 @@
                     <h3>What's your password?</h3>
                     <br>
                     <input type="password" id="passwordInput"></input>
-                    <div class="button-group">
+                    <div class="button-group" id="checkPwContainer">
                         <button class="btn-primary" id="btn-pw-verify">Check Password</button>
                         <br>
                         <br>
@@ -87,7 +87,14 @@
 
         <section class="image-display" style="display: none;">
             <div class="container flex-container">
+                <h3>How about an image to help you remember your password?</h3>
                 <div class="loadingSpinner"></div>
+            </div>
+        </section>
+        <section class="reset" style="display: none;">
+            <div class="container flex-container">
+                <h3>Not a fan of that password? You can always</h3>
+                <button id="resetButton" class="btn-primary">Generate a new one</button>
             </div>
         </section>
         <section class="image-download" style="display: none;">...</section>
