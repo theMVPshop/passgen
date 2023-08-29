@@ -58,14 +58,19 @@ header {
 
 .flex-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+.flex-container img{
+  display: inline-grid;
+  grid-template-columns: repeat(2, [col-start] 1fr);
+  grid-gap: 10px;
 }
 
 .hero-content {
   flex: 1;
   padding-left: 50px;
-  
 }
 
 .hero-image {
@@ -214,4 +219,3 @@ input[type="password"] {
   border: 2px solid #aaa;  /* Adjust this value as needed */
     border-radius: 5px; 
 }
-

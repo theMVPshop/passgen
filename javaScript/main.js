@@ -99,39 +99,9 @@ function verifyPassword () {
         // checks input against generated password
         verifyPassword()
         // progresses down to the images section
-        document.querySelector('.image-display').style.display = 'block';
+        document.querySelector('.image-display').style.display = 'flex';
         document.querySelector('.image-display').scrollIntoView({ behavior: 'smooth' });
         
     });
 
-
-// const getStartedButton = document.getElementById("btn-start");
-// const generatedPasswordSpan = document.getElementById("generatedPassword");
-// const revealPasswordSpan = document.getElementById("revealPhrase");
-
-//   getStartedButton.addEventListener('click', function(){
-//     console.log("Generated Button Clicked");
-
-//     const newPhrase = generatePhrase(phrase);
-//     console.log("Generated Phrase", newPhrase)
-
-//     const generatedPassword = phraseToPassword(phrase);
-//     console.log("Generated Password", generatedPassword)
-
-//   })
-
 });
-    // imageFetch(prompt, abortController)
-    //     .then((res) => {
-    //         let imageDisplay = document.querySelector('.image-display')
-    //         imageDisplay.removeChild(imageDisplay.firstChild)
-    //         let div = document.createElement('div')
-    //         div.classList.add('container')
-    //         div.classList.add('flex-container')
-    //         for (let i = 0; i > res.length; i++) {
-    //             let img = document.createElement('img')
-    //             img.src = res[i]
-    //             div.appendChild(img)
-    //         }
-    //         imageDisplay.appendChild(div)
-    //     });
