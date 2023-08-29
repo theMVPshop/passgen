@@ -7,13 +7,40 @@ let newPhrase = generatePhrase()
 let generatedPassword = phraseToPassword(newPhrase)
 let passwordInput = ""
 
-function verifyPassword () {
+ function verifyPassword () {
     console.log(passwordInput)
     console.log(generatedPassword)
-    if(passwordInput === generatedPassword) {
-        console.log("Correct!")
+    const container = document.querySelector('#checkPwContainer')
+    let h4 = document.createElement('h4')
+    h4.className = 'h4'
+    if (container.lastChild.nodeName === 'H4') {
+        console.log("it's an h4")
+        container.removeChild(container.lastChild)
     }
-    else console.log("Incorrect.")
+    container.appendChild(h4)
+    if(passwordInput === generatedPassword) {
+        h4.innerText = "Correct! Nice job!"
+    }
+    else {
+       h4.innerText = "Incorrect..."
+    }
+}
+
+function reset () {
+    abortController.abort()
+    abortController = new AbortController()
+    newPhrase = generatePhrase()
+    generatedPassword = phraseToPassword(newPhrase)
+    passwordInput = ""
+    document.querySelector('.hero').style.display = 'flex';
+    document.querySelector('.password-generator').style.display = 'none';
+    document.querySelector('.password-show').style.display = 'none'
+    document.querySelector('.password-check').style.display = 'none'
+    document.querySelector('.image-display').style.display = 'none'
+    document.querySelector('.reset').style.display = 'none'
+    document.querySelector('.h4').style.display = 'none'
+
+    // todo: remove previously generated images
 }
 
 // event listener to abort unresolved fetch requests on page refresh
@@ -101,24 +128,13 @@ function verifyPassword () {
         // progresses down to the images section
         document.querySelector('.image-display').style.display = 'block';
         document.querySelector('.image-display').scrollIntoView({ behavior: 'smooth' });
-        
+        document.querySelector('.reset').style.display = 'block';
     });
 
-
-// const getStartedButton = document.getElementById("btn-start");
-// const generatedPasswordSpan = document.getElementById("generatedPassword");
-// const revealPasswordSpan = document.getElementById("revealPhrase");
-
-//   getStartedButton.addEventListener('click', function(){
-//     console.log("Generated Button Clicked");
-
-//     const newPhrase = generatePhrase(phrase);
-//     console.log("Generated Phrase", newPhrase)
-
-//     const generatedPassword = phraseToPassword(phrase);
-//     console.log("Generated Password", generatedPassword)
-
-//   })
+    document.querySelector('#resetButton').addEventListener('click', function(event) {
+        event.preventDefault()
+        reset()
+    })
 
 });
     // imageFetch(prompt, abortController)
