@@ -44,7 +44,11 @@ function verifyPassword () {
     imageFetch(generatePrompt(newPhrase), abortController)
         .then((res) => {
             let imageDisplay = document.querySelector('.image-display')
-            imageDisplay.removeChild(imageDisplay.firstChild)
+            let child = document.querySelector('#img-display-child')
+            while (child.firstChild) {
+                child.removeChild(child.firstChild)
+                console.log("remove child")
+            }
             let div = document.createElement('div')
             div.classList.add('container')
             div.classList.add('flex-container')
@@ -53,8 +57,9 @@ function verifyPassword () {
                 img.src = res[i]
                 div.appendChild(img)
             }
-            imageDisplay.appendChild(div)
+            child.appendChild(div)
         })
+    });
 });
 
 
@@ -103,5 +108,3 @@ function verifyPassword () {
         document.querySelector('.image-display').scrollIntoView({ behavior: 'smooth' });
         
     });
-
-});
