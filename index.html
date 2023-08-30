@@ -51,6 +51,9 @@
                     <p>But that's so hard to remember! </p>
                     <p>What if we converted it into a phrase? Something like...</p>
                     <p id="passwordToPhrase"></p>
+                    <p>We can substitute certain words for numbers and symbols, so 'ate' becomes 8, and 'at' becomes @.</p>
+                    <p id="nameSpot"></p>
+                    <p>Bingo! We've got an easy-to-remember password!</p>
                     <div class="button-group">
                         <a href="#password-check-section" class="btn-primary" id="btn-pw-check">Next</a>
                     </div>
@@ -80,8 +83,9 @@
         </section>
 
         <section class="image-display" style="display: none;">
-            <div class="container flex-container">
-                <h3>How about an image to help you remember your password?</h3>
+            <h3>But if you just write that down, anyone could find your password.</h3>
+            <h3>So, how about an image to help you remember?</h3>
+            <div class="container flex-container" id="img-display-child">
                 <div class="loadingSpinner"></div>
             </div>
         </section>
