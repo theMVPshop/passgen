@@ -34,12 +34,13 @@ body:before{
 }
 
 header {
-  background: var(--white);
+  background: var(--teal);
   padding: 10px 0;
 }
 
 .logo {
-  max-width: 150px;
+  max-width: 300px;
+  height: auto;
 }
 
 .card-background {
