@@ -58,14 +58,18 @@ header {
 
 .flex-container {
   display: flex;
-  flex-wrap: wrap;
-  width: auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.flex-container img{
-  display: inline-grid;
-  grid-template-columns: repeat(2, [col-start] 1fr);
-  grid-gap: 10px;
+.image-display{
+  gap: 5px;
+  border: #191970 3px dotted;
+}
+
+.image-display img{
+  border: #191970 3px dotted;
+  width: 350px;
 }
 
 .hero-content {

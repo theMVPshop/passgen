@@ -99,7 +99,7 @@ function verifyPassword () {
         // checks input against generated password
         verifyPassword()
         // progresses down to the images section
-        document.querySelector('.image-display').style.display = 'flex';
+        document.querySelector('.image-display').style.display = 'grid';
         document.querySelector('.image-display').scrollIntoView({ behavior: 'smooth' });
         
     });
