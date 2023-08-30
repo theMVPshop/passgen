@@ -155,7 +155,8 @@ function reset () {
     })
 
 });
-    // imageFetch(prompt, abortController)
+
+// imageFetch(prompt, abortController)
     //     .then((res) => {
     //         let imageDisplay = document.querySelector('.image-display')
     //         imageDisplay.removeChild(imageDisplay.firstChild)

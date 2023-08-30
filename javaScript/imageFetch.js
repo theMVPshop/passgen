@@ -16,7 +16,7 @@ export async function imageFetch (prompt, controller) {
     signal: controller.signal,
     headers: {
         accept: 'application/json', 
-        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjUyN2JmZDkzMjc1MDdmODNiYjkzMTQ2Y2Y0YjAxY2E1IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MTk6NTMuODI3NzEwIn0.BUtNbN2WKl2hvdGCeKHN1rUVPusQcir1CXIs4nRjhzA`
+        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2OTYwMjk2NjksImlhdCI6MTY5MzQzNzY2OSwic3ViIjoiZTA3ZWIzMmUwYWY3MDFjZjdkZGY2NWE4NDhjMmU1NjMifQ.ey5Mg8y956KocKillDewUiyt5YLrBL0RiOaVcQ8EI84`
     }
     };
 
@@ -42,7 +42,7 @@ export async function imageFetch (prompt, controller) {
                 headers: {
                     accept: 'application/json',
                     'content-type': 'multipart/form-data',
-                    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjUyN2JmZDkzMjc1MDdmODNiYjkzMTQ2Y2Y0YjAxY2E1IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MTk6NTMuODI3NzEwIn0.BUtNbN2WKl2hvdGCeKHN1rUVPusQcir1CXIs4nRjhzA`
+                    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2OTYwMjk2NjksImlhdCI6MTY5MzQzNzY2OSwic3ViIjoiZTA3ZWIzMmUwYWY3MDFjZjdkZGY2NWE4NDhjMmU1NjMifQ.ey5Mg8y956KocKillDewUiyt5YLrBL0RiOaVcQ8EI84`
                     }
                 };
             try {
