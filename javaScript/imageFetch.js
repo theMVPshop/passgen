@@ -26,6 +26,9 @@ export async function imageFetch (prompt, controller) {
         const res = await fetch(url, options)
         if (!res.ok) {
             console.log(res.json())
+            if(res.status == 403) {
+                alert("The host needs to add more credits to their account in order for image generation to work!")
+            }
             throw new Error(`Failed to fetch. Status code: ${res.status}`);
           }
         const data = await res.json()
