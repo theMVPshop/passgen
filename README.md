@@ -51,4 +51,5 @@ This project served as a comprehensive exercise in web development, API integrat
 
 - Fonts from [Google Fonts](https://fonts.googleapis.com/)
 - Image credit: [Specops Software](https://specopssoft.com/blog/best-password-practices-to-defend-against-modern-cracking-attacks/)
+- Image Generations from [MonsterAPI](https://api.monsterapi.ai/v1/generate/sdxl-base)
 
