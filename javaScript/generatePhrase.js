@@ -17,8 +17,16 @@ export const generatePhrase = () => {
     let color = selectWord(colors)
     let foodItem = selectWord(food)
     let place = selectWord(places)
+    let article = 'a'
 
-    const phrase = `${celebrity} ate ${foodItem} while wearing ${color} ${wearing} at ${place}`
+    if(color == 'orange') {
+      article = 'an'
+    }
+
+    let phrase = `${celebrity} ate ${foodItem} while wearing ${article} ${color} ${wearing} at ${place}`
+    if (wearing == "glasses" || wearing == "headphones" || wearing == "pants") {
+      phrase = `${celebrity} ate ${foodItem} while wearing ${color} ${wearing} at ${place}`
+    }
     
     return phrase
 }

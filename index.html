@@ -6,6 +6,7 @@
     <title>PictaPass</title>
     <link rel="stylesheet" href="./css/reset.css"/>
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css"/>
     <script type="module" src="/passgen/javaScript/main.js" defer></script>
     
@@ -13,7 +14,7 @@
     <body>
         <header>
             <div class="header-container">
-                <img src="./images/logo.png" alt="Logo" class="logo">
+                <img src="./images/PictaPasslogo.jpg" alt="Logo" class="logo">
             </div>
         </header>
 
@@ -29,13 +30,6 @@
 
                     </div>
                 </div>
-        
-                <!-- <div class="hero-image">
-                    <video autoplay muted loop> -->
-                        <!-- <source src="/images/video.mp4" type="video/mp4"> -->
-                        <!-- Your browser does not support the video tag.
-                    </video>
-                </div> -->
                 
             </div>
         </section>
@@ -57,6 +51,9 @@
                     <p>But that's so hard to remember! </p>
                     <p>What if we converted it into a phrase? Something like...</p>
                     <p id="passwordToPhrase"></p>
+                    <p>We can substitute certain words for numbers and symbols, so 'ate' becomes 8, and 'at' becomes @.</p>
+                    <p id="nameSpot"></p>
+                    <p>Bingo! We've got an easy-to-remember password!</p>
                     <div class="button-group">
                         <a href="#password-check-section" class="btn-primary" id="btn-pw-check">Next</a>
                     </div>
@@ -70,9 +67,8 @@
                     <h3>What's your password?</h3>
                     <br>
                     <input type="password" id="passwordInput"></input>
-                    <div class="button-group">
+                    <div class="button-group" id="checkPwContainer">
                         <button class="btn-primary" id="btn-pw-verify">Check Password</button>
-                        <br>
                         <br>
                         <button class="btn-secondary" id="btn-reveal-hint">Reveal passphrase</button>
                     </div>
@@ -86,12 +82,20 @@
         </section>
 
         <section class="image-display" style="display: none;">
-            <h3>How about an image to help you remember your password?</h3>
-            <div class="container flex-container" id="image-display-child">
+
+            <h3>But if you just write that down, anyone could find your password.</h3>
+            <h3>So, how about an image to help you remember?</h3>
+            <div class="container flex-container" id="img-display-child">
                 <div class="loadingSpinner"></div>
             </div>
         </section>
-        <section class="image-download"></section>
+        <section class="reset" style="display: none;">
+            <div class="container flex-container">
+                <h3>Not a fan of that password? You can always</h3>
+                <button id="resetButton" class="btn-primary">Generate a new one</button>
+            </div>
+        </section>
+        <section class="image-download" style="display: none;">...</section>
 
         
     </body>

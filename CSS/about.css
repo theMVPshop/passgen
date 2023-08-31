@@ -1,9 +1,11 @@
 .main-container {
-    max-width: 1200px; /* Adjust to your liking */
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 20px; /* Add some padding so content doesn't touch the edges on small screens */
+    padding: 0 20px; 
+    min-width: 350px; 
 }
+
 
 h1 {
     font-size: 2.5em;
@@ -14,12 +16,12 @@ h1 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    min-width: 350px;
 }
 .about-text {
     padding: 0 5% 5% 5%;
     font-size: 1.2em;
     max-width: 800px;
-    /* text-align: center; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -28,7 +30,6 @@ h1 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.0em;
 }
 
 .accordion {
@@ -40,7 +41,6 @@ h1 {
     outline: none;
     transition: 0.4s;
     background-color: rgba(150, 148, 157, 0.4);
-    /* rgba(230, 230, 250, .7); */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
     color: white;
 }
@@ -49,25 +49,34 @@ h1 {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    padding: 0 10px;
+    padding: 5px 10px;
    
 }
 
 .accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign */
+    content: '\002B'; /* Unicode character for "plus" sign */
     float: right;
     color: white !important;
    
 }
 
+.accordion-content.active {
+    max-height: 350px; 
+    overflow-y: scroll;
+}
+
+
 .accordion.active:after {
-    content: "\2796"; /* Unicode character for "minus" sign */
+    content: '\002D'; /* Unicode character for "minus" sign */
     color: white !important;
 }
 
 .img-container {
     margin-top: 20px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .img-container img {
@@ -77,13 +86,27 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(150, 148, 157, 0.8);
-    /* rgba(230, 230, 250, .7); */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 40px; 
+    max-width: 100%;
+    height: auto;
 }
 
 .img-container p {
-    font-size: 0.8em; /* Adjust this for the image caption font size */
+    font-size: 0.8em; 
     margin-top: 5px;
+}
+
+.img-container a{
+    color: white;
+    text-decoration: none;
+}
+
+.button-group.home-button {
+    bottom: 0;  
+    width: 100%;         
+    display: flex;     
+    justify-content: center;
+    padding: 10px 0; 
 }

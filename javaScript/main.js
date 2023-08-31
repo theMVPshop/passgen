@@ -6,14 +6,54 @@ let abortController = new AbortController();
 let newPhrase = generatePhrase()
 let generatedPassword = phraseToPassword(newPhrase)
 let passwordInput = ""
-
-function verifyPassword () {
-    console.log(passwordInput)
-    console.log(generatedPassword)
-    if(passwordInput === generatedPassword) {
-        console.log("Correct!")
+let returnName=  () => {
+    let arr = newPhrase.split(" ")
+    while (arr.length > 2) {
+        arr.pop()
     }
-    else console.log("Incorrect.")
+    return arr.join(" ")
+} 
+let celebName = returnName()
+    
+
+ function verifyPassword () {
+    const container = document.querySelector('#checkPwContainer')
+    let h4 = document.createElement('h4')
+    h4.className = 'h4'
+    if (container.lastChild.nodeName === 'H4') {
+        container.removeChild(container.lastChild)
+    }
+    container.appendChild(h4)
+    if(passwordInput === generatedPassword) {
+        h4.innerText = "Correct! Nice job!"
+    }
+    else {
+       h4.innerText = "Incorrect..."
+    }
+}
+
+function reset () {
+    abortController.abort()
+    abortController = new AbortController()
+    newPhrase = generatePhrase()
+    generatedPassword = phraseToPassword(newPhrase)
+    celebName = returnName()
+    passwordInput = ""
+    document.querySelector('.hero').style.display = 'flex';
+    document.querySelector('.password-generator').style.display = 'none';
+    document.querySelector('.password-show').style.display = 'none'
+    document.querySelector('.password-check').style.display = 'none'
+    document.querySelector('.image-display').style.display = 'none'
+    document.querySelector('.reset').style.display = 'none'
+    document.querySelector('.h4').style.display = 'none'
+    let child = document.querySelector('#img-display-child')
+            while (child.firstChild) {
+                child.removeChild(child.firstChild)
+                console.log("remove child")
+            }
+    let div = document.createElement('div')
+    div.classList.add('spinner')
+    child.appendChild(div)
 }
 
 // event listener to abort unresolved fetch requests on page refresh
@@ -40,15 +80,16 @@ function verifyPassword () {
 
     document.querySelector('#generatedPassword').innerHTML = generatedPassword
     document.querySelector('#passwordToPhrase').innerHTML = newPhrase
+    document.querySelector('#nameSpot').innerHTML = `Now, let's take two letters from each word, and capitalize the first letter, so ${celebName} becomes ${generatedPassword[0]}${generatedPassword[1]}${generatedPassword[2]}${generatedPassword[3]}.`
 
     imageFetch(generatePrompt(newPhrase), abortController)
         .then((res) => {
-            let imageDisplay = document.querySelector('.image-display')
             let child = document.querySelector('#image-display-child')
             while (child.firstChild) {
                 child.removeChild(child.firstChild)
                 console.log("remove child")
             }
+            // vvv might need to refactor this to render images to correct container
             let div = document.createElement('div')
             div.classList.add('container')
             div.classList.add('flex-container')
@@ -60,7 +101,6 @@ function verifyPassword () {
             child.appendChild(div)
         })
     });
-});
 
     // Event listener for "Generate Password" button
     document.querySelector('#btn-generate').addEventListener('click', function(event) {
@@ -105,5 +145,12 @@ function verifyPassword () {
         // progresses down to the images section
         document.querySelector('.image-display').style.display = 'flex';
         document.querySelector('.image-display').scrollIntoView({ behavior: 'smooth' });
-        
+        document.querySelector('.reset').style.display = 'block';
     });
+
+    document.querySelector('#resetButton').addEventListener('click', function(event) {
+        event.preventDefault()
+        reset()
+    })
+});
+
