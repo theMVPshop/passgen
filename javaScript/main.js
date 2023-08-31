@@ -84,7 +84,7 @@ function reset () {
 
     imageFetch(generatePrompt(newPhrase), abortController)
         .then((res) => {
-            let child = document.querySelector('#img-display-child')
+            let child = document.querySelector('#image-display-child')
             while (child.firstChild) {
                 child.removeChild(child.firstChild)
                 console.log("remove child")
@@ -101,7 +101,6 @@ function reset () {
             child.appendChild(div)
         })
     });
-
 
     // Event listener for "Generate Password" button
     document.querySelector('#btn-generate').addEventListener('click', function(event) {
@@ -144,7 +143,7 @@ function reset () {
         // checks input against generated password
         verifyPassword()
         // progresses down to the images section
-        document.querySelector('.image-display').style.display = 'block';
+        document.querySelector('.image-display').style.display = 'flex';
         document.querySelector('.image-display').scrollIntoView({ behavior: 'smooth' });
         document.querySelector('.reset').style.display = 'block';
     });
@@ -153,20 +152,5 @@ function reset () {
         event.preventDefault()
         reset()
     })
-
 });
 
-// imageFetch(prompt, abortController)
-    //     .then((res) => {
-    //         let imageDisplay = document.querySelector('.image-display')
-    //         imageDisplay.removeChild(imageDisplay.firstChild)
-    //         let div = document.createElement('div')
-    //         div.classList.add('container')
-    //         div.classList.add('flex-container')
-    //         for (let i = 0; i > res.length; i++) {
-    //             let img = document.createElement('img')
-    //             img.src = res[i]
-    //             div.appendChild(img)
-    //         }
-    //         imageDisplay.appendChild(div)
-    //     });
