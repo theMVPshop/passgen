@@ -42,24 +42,24 @@ function verifyPassword () {
     document.querySelector('#passwordToPhrase').innerHTML = newPhrase
 
     imageFetch(generatePrompt(newPhrase), abortController)
-    .then((res) => {
-        let imageDisplay = document.querySelector('.image-display')
-        let child = document.querySelector('#img-display-child')
-        while (child.firstChild) {
-            child.removeChild(child.firstChild)
-            console.log("remove child")
-        }
-        let div = document.createElement('div')
-        div.classList.add('container')
-        div.classList.add('flex-container')
-        for (let i = 0; i < res.length; i++) {
-            let img = document.createElement('img')
-            img.src = res[i]
-            div.appendChild(img)
-        }
-        child.appendChild(div)
-    })
-});
+        .then((res) => {
+            let imageDisplay = document.querySelector('.image-display')
+            let child = document.querySelector('#image-display-child')
+            while (child.firstChild) {
+                child.removeChild(child.firstChild)
+                console.log("remove child")
+            }
+            let div = document.createElement('div')
+            div.classList.add('container')
+            div.classList.add('flex-container')
+            for (let i = 0; i < res.length; i++) {
+                let img = document.createElement('img')
+                img.src = res[i]
+                div.appendChild(img)
+            }
+            child.appendChild(div)
+        })
+    });
 });
 
     // Event listener for "Generate Password" button
