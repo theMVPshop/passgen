@@ -44,7 +44,7 @@ function verifyPassword () {
     imageFetch(generatePrompt(newPhrase), abortController)
         .then((res) => {
             let imageDisplay = document.querySelector('.image-display')
-            let child = document.querySelector('#img-display-child')
+            let child = document.querySelector('#image-display-child')
             while (child.firstChild) {
                 child.removeChild(child.firstChild)
                 console.log("remove child")

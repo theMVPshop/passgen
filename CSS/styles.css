@@ -63,6 +63,7 @@ header {
 }
 
 #img-display-child{
+  border: #cfd0d1 2px solid;
   width: 500px;
 }
 
