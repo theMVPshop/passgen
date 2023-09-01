@@ -169,6 +169,7 @@ button {
         box-shadow: none;
         padding: 0; 
         border-radius: 0;
+        font-size: 1em;
     }
 }
 
@@ -261,10 +262,15 @@ input[type="password"] {
 }
 
 @media (max-width: 768px) {
-  .pw-check-content {
+  .password-show {
+    height: auto;
+
+  }
+  .pw-check-content,
+  .pw-gen-content {
       height: auto;
       width: 90%;
-      padding: 1rem;
+      padding: 10px;
   }
 
   .pw-check-content h3,
