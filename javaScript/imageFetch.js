@@ -16,7 +16,7 @@ export async function imageFetch (prompt, controller) {
     signal: controller.signal,
     headers: {
         accept: 'application/json', 
-        authorization: `Bearer `
+        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjVkYTcyZGViMGRiYWFiMjg5MGU4NDUxMGZmNGRjYzQ4IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6NDM6MjIuMDU5MjIyIn0.hIWtdiZMh4WGajF021WlOHxN8dJBybnw1YENMaj9cPY`
     }
     };
 
@@ -42,7 +42,7 @@ export async function imageFetch (prompt, controller) {
                 headers: {
                     accept: 'application/json',
                     'content-type': 'multipart/form-data',
-                    authorization: `Bearer `
+                    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjVkYTcyZGViMGRiYWFiMjg5MGU4NDUxMGZmNGRjYzQ4IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6NDM6MjIuMDU5MjIyIn0.hIWtdiZMh4WGajF021WlOHxN8dJBybnw1YENMaj9cPY`
                     }
                 };
             try {
