@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css"/>
-    <script type="module" src="/passgen/javaScript/main.js" defer></script>
+    <script type="module" src="/javaScript/main.js" defer></script>
     
 </head>
     <body>
@@ -47,12 +47,18 @@
         <section class="password-show" style="display: none;">
             <div class="container flex-container">
                 <div class="pw-gen-content card-background">
-                    <h3>A strong password would be something like: <span id="generatedPassword"></span></h3>
+                    <h3>A strong password would be something like: </h3>
+                    <blockquote id="generatedPassword" class="blockquote"></blockquote>
+                    <br>
                     <p>But that's so hard to remember! </p>
+                    <br>
                     <p>What if we converted it into a phrase? Something like...</p>
-                    <p id="passwordToPhrase"></p>
+                    <blockquote id="passwordToPhrase" class="blockquote"></blockquote>
+                    <br>
                     <p>We can substitute certain words for numbers and symbols, so 'ate' becomes 8, and 'at' becomes @.</p>
+                    <br>
                     <p id="nameSpot"></p>
+                    <br>
                     <p>Bingo! We've got an easy-to-remember password!</p>
                     <div class="button-group">
                         <a href="#password-check-section" class="btn-primary" id="btn-pw-check">Next</a>
@@ -82,19 +88,29 @@
         </section>
 
         <section class="image-display" style="display: none;">
-
-            <h3>But if you just write that down, anyone could find your password.</h3>
-            <h3>So, how about an image to help you remember?</h3>
-            <div class="container flex-container" id="img-display-child">
-                <div class="loadingSpinner"></div>
+            <div class="container flex-container">
+                <div class="card-background">
+                    <h3>But if you just write that down, anyone could find your password.</h3>
+                    <h3>So, how about an image to help you remember?</h3>
+                    <div class="container flex-container" id="img-display-child">
+                        <div class="loadingSpinner"></div>
+                    </div>
+                </div>
             </div>
         </section>
+        
         <section class="reset" style="display: none;">
             <div class="container flex-container">
-                <h3>Not a fan of that password? You can always</h3>
-                <button id="resetButton" class="btn-primary">Generate a new one</button>
+                <div class="reset-content card-background">
+                    <h3>Not a fan of that password? You can always</h3>
+                    <div class="button-group">
+                        <button id="resetButton" class="btn-primary">Generate a new one</button>
+                    </div>
+                </div>
             </div>
         </section>
+        
+        
         <section class="image-download" style="display: none;">...</section>
 
         
