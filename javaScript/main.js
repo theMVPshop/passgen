@@ -39,6 +39,7 @@ function reset () {
     generatedPassword = phraseToPassword(newPhrase)
     celebName = returnName()
     passwordInput = ""
+    document.querySelector('#passwordInput').value = ""
     document.querySelector('.hero').style.display = 'flex';
     document.querySelector('.password-generator').style.display = 'none';
     document.querySelector('.password-show').style.display = 'none'
@@ -46,13 +47,16 @@ function reset () {
     document.querySelector('.image-display').style.display = 'none'
     document.querySelector('.reset').style.display = 'none'
     document.querySelector('.h4').style.display = 'none'
-    let child = document.querySelector('#img-display-child')
+    document.querySelector('.hint-phrase').style.display = 'none';
+    document.querySelector('#btn-hide-hint').style.display = 'none'
+    document.querySelector('#btn-reveal-hint').style.display = 'block'
+    let child = document.querySelector('#image-display-child')
             while (child.firstChild) {
                 child.removeChild(child.firstChild)
                 console.log("remove child")
             }
     let div = document.createElement('div')
-    div.classList.add('spinner')
+    div.classList.add('loadingSpinner')
     child.appendChild(div)
 }
 
