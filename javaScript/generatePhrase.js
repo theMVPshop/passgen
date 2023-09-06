@@ -46,15 +46,22 @@ export function phraseToPassword(phrase) {
       'ate': '8',
       'at': '@'
     };
-  
-    words.forEach((word) => {
+    const arr = words.map((word)=> {
       const lowerWord = word.toLowerCase();
       if (conversionRules.hasOwnProperty(lowerWord)) {
-        password += conversionRules[lowerWord];
+        return `<span class='phLetter'> ${conversionRules[lowerWord]} </span>`;
       } else {
-        password += word.charAt(0).toUpperCase() + word.charAt(1).toLowerCase();
+        return `<span class='phLetter'> ${word.charAt(0).toUpperCase()}${word.charAt(1).toLowerCase()} </span>`;
       }
-    });
+    })
+    // words.forEach((word) => {
+    //   const lowerWord = word.toLowerCase();
+    //   if (conversionRules.hasOwnProperty(lowerWord)) {
+    //     password += conversionRules[lowerWord];
+    //   } else {
+    //     password += word.charAt(0).toUpperCase() + word.charAt(1).toLowerCase();
+    //   }
+    // });
   
-    return password;
+    return arr.join("");
   }

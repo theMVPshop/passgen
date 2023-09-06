@@ -25,7 +25,10 @@ let transformedWords = phraseArray.map(word => {
 
 let joinedWords = transformedWords.join(' ')
 
- function verifyPassword () {
+let index = 0;
+const delay = 1000
+
+function verifyPassword () {
     const container = document.querySelector('#checkPwContainer')
     let h4 = document.createElement('h4')
     h4.className = 'h4'
@@ -48,6 +51,13 @@ function reset () {
     generatedPassword = phraseToPassword(newPhrase)
     celebName = returnName()
     passwordInput = ""
+    phraseArray = newPhrase.split(" ")
+    transformedWords = phraseArray.map(word => {
+        const firstLetter = word.charAt(0).toUpperCase();
+        const secondLetter = word.charAt(1);
+        const remainingLetters = word.slice(2);
+        return `<span class='pLetter'>${firstLetter}${secondLetter}</span>${remainingLetters}`;
+        })
     document.querySelector('#passwordInput').value = ""
     document.querySelector('.hero').style.display = 'flex';
     document.querySelector('.password-generator').style.display = 'none';

@@ -3,7 +3,7 @@
 // It takes awhile to come back, so console logs keep track of the progress.
 // You should await the resolution of this function, then do something with the returned array.
 export async function imageFetch (prompt, controller) {
-    // const token = "Your Token Here"
+    const token = ""
     const form = new FormData();
     // put prompt variable as second argument in the next line
     form.append('prompt', `${prompt}`);
@@ -16,7 +16,7 @@ export async function imageFetch (prompt, controller) {
     signal: controller.signal,
     headers: {
         accept: 'application/json', 
-        authorization: `Bearer `
+        authorization: `Bearer ${token}`
     }
     };
 
@@ -42,7 +42,7 @@ export async function imageFetch (prompt, controller) {
                 headers: {
                     accept: 'application/json',
                     'content-type': 'multipart/form-data',
-                    authorization: `Bearer `
+                    authorization: `Bearer ${token}`
                     }
                 };
             try {
