@@ -28,6 +28,21 @@ let joinedWords = transformedWords.join(' ')
 let index = 0;
 const delay = 1000
 
+function colorShift () {
+    const phLetterSpans = document.querySelectorAll('.phLetter');
+    const pLetterSpans = document.querySelectorAll('.pLetter')
+    // These lines set the style back to how it originally was
+    pLetterSpans.forEach(span => span.style.color = '#191970');
+    phLetterSpans.forEach(span => span.style.color = '#191970');
+    // These lines change the style to something new
+    pLetterSpans[index].style.color = '#e45f2b';
+    phLetterSpans[index].style.color = '#e45f2b';
+    // This line increments the index to keep the style change moving
+    index = (index + 1) % pLetterSpans.length
+}
+
+setInterval(colorShift, delay)
+
 function verifyPassword () {
     const container = document.querySelector('#checkPwContainer')
     let h4 = document.createElement('h4')
