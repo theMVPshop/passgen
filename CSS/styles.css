@@ -299,6 +299,17 @@ input[type="password"] {
   margin-bottom: 20px;
 }
 
+#image-display-child {
+  max-width: 500px;
+  width: 100%;
+}
+
+.image-display img{
+  max-width: 240px;
+  width: 100%;
+  margin: 5px;
+}
+
 /* reset section */
 .reset-content {
   padding: 20px;
