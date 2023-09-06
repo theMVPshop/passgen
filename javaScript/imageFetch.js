@@ -16,7 +16,7 @@ export async function imageFetch (prompt, controller) {
     signal: controller.signal,
     headers: {
         accept: 'application/json', 
-        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjUyN2JmZDkzMjc1MDdmODNiYjkzMTQ2Y2Y0YjAxY2E1IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MTk6NTMuODI3NzEwIn0.BUtNbN2WKl2hvdGCeKHN1rUVPusQcir1CXIs4nRjhzA`
+        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjNkOTdiY2EwZjczZjZhODQ3OGE3ZDJiYmU3YTk3NjhkIiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMzBUMjM6MzI6NDAuMTQ5MDMyIn0.QFmmCxaVCXS8RdEccdMXIJszF1ocaem3mX7_oyVvOPo`
     }
     };
 
@@ -26,6 +26,9 @@ export async function imageFetch (prompt, controller) {
         const res = await fetch(url, options)
         if (!res.ok) {
             console.log(res.json())
+            if(res.status == 403) {
+                alert("The host needs to add more credits to their account in order for image generation to work!")
+            }
             throw new Error(`Failed to fetch. Status code: ${res.status}`);
           }
         const data = await res.json()
@@ -39,7 +42,7 @@ export async function imageFetch (prompt, controller) {
                 headers: {
                     accept: 'application/json',
                     'content-type': 'multipart/form-data',
-                    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjUyN2JmZDkzMjc1MDdmODNiYjkzMTQ2Y2Y0YjAxY2E1IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMTRUMjM6MTk6NTMuODI3NzEwIn0.BUtNbN2WKl2hvdGCeKHN1rUVPusQcir1CXIs4nRjhzA`
+                    authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjNkOTdiY2EwZjczZjZhODQ3OGE3ZDJiYmU3YTk3NjhkIiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMzBUMjM6MzI6NDAuMTQ5MDMyIn0.QFmmCxaVCXS8RdEccdMXIJszF1ocaem3mX7_oyVvOPo`
                     }
                 };
             try {
