@@ -5,6 +5,7 @@ let abortController = new AbortController();
 
 let newPhrase = generatePhrase()
 let generatedPassword = phraseToPassword(newPhrase)
+let phraseArray = newPhrase.split(" ")
 let passwordInput = ""
 let returnName=  () => {
     let arr = newPhrase.split(" ")
@@ -14,9 +15,20 @@ let returnName=  () => {
     return arr.join(" ")
 } 
 let celebName = returnName()
-    
 
- function verifyPassword () {
+let transformedWords = phraseArray.map(word => {
+    const firstLetter = word.charAt(0).toUpperCase();
+    const secondLetter = word.charAt(1);
+    const remainingLetters = word.slice(2);
+    return `<span class='pLetter'>${firstLetter}${secondLetter}</span>${remainingLetters}`;
+    })
+
+let joinedWords = transformedWords.join(' ')
+
+let index = 0;
+const delay = 1000
+
+function verifyPassword () {
     const container = document.querySelector('#checkPwContainer')
     let h4 = document.createElement('h4')
     h4.className = 'h4'
@@ -39,6 +51,13 @@ function reset () {
     generatedPassword = phraseToPassword(newPhrase)
     celebName = returnName()
     passwordInput = ""
+    phraseArray = newPhrase.split(" ")
+    transformedWords = phraseArray.map(word => {
+        const firstLetter = word.charAt(0).toUpperCase();
+        const secondLetter = word.charAt(1);
+        const remainingLetters = word.slice(2);
+        return `<span class='pLetter'>${firstLetter}${secondLetter}</span>${remainingLetters}`;
+        })
     document.querySelector('#passwordInput').value = ""
     document.querySelector('.hero').style.display = 'flex';
     document.querySelector('.password-generator').style.display = 'none';
@@ -83,7 +102,7 @@ function reset () {
     document.querySelector('.password-generator').style.display = 'block';
 
     document.querySelector('#generatedPassword').innerHTML = generatedPassword
-    document.querySelector('#passwordToPhrase').innerHTML = newPhrase
+    document.querySelector('#passwordToPhrase').innerHTML = joinedWords
     document.querySelector('#nameSpot').innerHTML = `Now, let's take two letters from each word, and capitalize the first letter, so ${celebName} becomes ${generatedPassword[0]}${generatedPassword[1]}${generatedPassword[2]}${generatedPassword[3]}.`
 
     imageFetch(generatePrompt(newPhrase), abortController)
