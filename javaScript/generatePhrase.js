@@ -38,7 +38,7 @@ export const generatePrompt = (prompt) => {
 }
 
 // function to generate password based on phrase
-export function phraseToPassword(phrase) {
+export function phraseToPasswordSpan(phrase) {
     const words = phrase.split(' ');
     let password = '';
   
@@ -49,19 +49,30 @@ export function phraseToPassword(phrase) {
     const arr = words.map((word)=> {
       const lowerWord = word.toLowerCase();
       if (conversionRules.hasOwnProperty(lowerWord)) {
-        return `<span class='phLetter'> ${conversionRules[lowerWord]} </span>`;
+        return `<span class='phLetter'>${conversionRules[lowerWord]}</span>`;
       } else {
-        return `<span class='phLetter'> ${word.charAt(0).toUpperCase()}${word.charAt(1).toLowerCase()} </span>`;
+        return `<span class='phLetter'>${word.charAt(0).toUpperCase()}${word.charAt(1).toLowerCase()}</span>`;
       }
     })
-    // words.forEach((word) => {
-    //   const lowerWord = word.toLowerCase();
-    //   if (conversionRules.hasOwnProperty(lowerWord)) {
-    //     password += conversionRules[lowerWord];
-    //   } else {
-    //     password += word.charAt(0).toUpperCase() + word.charAt(1).toLowerCase();
-    //   }
-    // });
-  
     return arr.join("");
+  }
+export function phraseToPassword(phrase) {
+    const words = phrase.split(' ');
+    let password = '';
+  
+    const conversionRules = {
+      'ate': '8',
+      'at': '@'
+    };
+
+    words.forEach((word) => {
+      const lowerWord = word.toLowerCase();
+      if (conversionRules.hasOwnProperty(lowerWord)) {
+        password += conversionRules[lowerWord];
+      } else {
+        password += word.charAt(0).toUpperCase() + word.charAt(1).toLowerCase();
+      }
+    });
+  
+    return password;
   }
