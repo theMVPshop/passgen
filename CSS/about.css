@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+
 .main-container {
     max-width: 1200px;
     margin-left: auto;
@@ -25,6 +30,16 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    .about-text {
+        font-size: 1em;
+    }
+}
+
 
 .full-accordion {
     max-width: 800px;
@@ -71,6 +86,13 @@ h1 {
     color: white !important;
 }
 
+@media (max-width: 768px) {
+    .accordion {
+        padding: 15px;
+    }
+}
+
+
 .img-container {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -101,6 +123,13 @@ h1 {
 .img-container a{
     color: white;
     text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .img-container img {
+        padding: 0px; 
+        width: 100%; 
+    }
 }
 
 .button-group.home-button {
