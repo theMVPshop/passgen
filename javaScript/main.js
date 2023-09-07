@@ -1,10 +1,11 @@
-import { generatePhrase, generatePrompt, phraseToPassword } from "./generatePhrase.js";
+import { generatePhrase, generatePrompt, phraseToPassword, phraseToPasswordSpan } from "./generatePhrase.js";
 import { imageFetch } from "./imageFetch.js";
 let abortController = new AbortController();
 
 
 let newPhrase = generatePhrase()
 let generatedPassword = phraseToPassword(newPhrase)
+let generatedPasswordSpan = phraseToPasswordSpan(newPhrase)
 let phraseArray = newPhrase.split(" ")
 let passwordInput = ""
 let returnName=  () => {
@@ -27,6 +28,7 @@ let joinedWords = transformedWords.join(' ')
 
 let index = 0;
 const delay = 1000
+let intervalId
 
 function colorShift () {
     const phLetterSpans = document.querySelectorAll('.phLetter');
@@ -41,8 +43,12 @@ function colorShift () {
     index = (index + 1) % pLetterSpans.length
 }
 
-setInterval(colorShift, delay)
 
+const progress = () => {
+    document.querySelector('.image-display').style.display = 'flex';
+    document.querySelector('.image-display').scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.reset').style.display = 'block';
+}
 function verifyPassword () {
     const container = document.querySelector('#checkPwContainer')
     let h4 = document.createElement('h4')
@@ -53,6 +59,7 @@ function verifyPassword () {
     container.appendChild(h4)
     if(passwordInput === generatedPassword) {
         h4.innerText = "Correct! Nice job!"
+        setTimeout(progress, 1000)
     }
     else {
        h4.innerText = "Incorrect..."
@@ -64,6 +71,7 @@ function reset () {
     abortController = new AbortController()
     newPhrase = generatePhrase()
     generatedPassword = phraseToPassword(newPhrase)
+    generatedPasswordSpan = phraseToPasswordSpan(newPhrase)
     celebName = returnName()
     passwordInput = ""
     phraseArray = newPhrase.split(" ")
@@ -72,7 +80,8 @@ function reset () {
         const secondLetter = word.charAt(1);
         const remainingLetters = word.slice(2);
         return `<span class='pLetter'>${firstLetter}${secondLetter}</span>${remainingLetters}`;
-        })
+    })
+    joinedWords = transformedWords.join(' ')
     document.querySelector('#passwordInput').value = ""
     document.querySelector('.hero').style.display = 'flex';
     document.querySelector('.password-generator').style.display = 'none';
@@ -84,6 +93,11 @@ function reset () {
     document.querySelector('.hint-phrase').style.display = 'none';
     document.querySelector('#btn-hide-hint').style.display = 'none'
     document.querySelector('#btn-reveal-hint').style.display = 'block'
+    document.querySelector('#phraseButton').style.display = 'block'
+    document.querySelector('#btn-pw-check').style.display = 'none'
+    clearInterval(intervalId)
+    intervalId = null
+    index = 0
     let child = document.querySelector('#image-display-child')
             while (child.firstChild) {
                 child.removeChild(child.firstChild)
@@ -115,8 +129,7 @@ function reset () {
     document.querySelector('#btn-start').addEventListener('click', function() {
     document.querySelector('.hero').style.display = 'none';
     document.querySelector('.password-generator').style.display = 'block';
-
-    document.querySelector('#generatedPassword').innerHTML = generatedPassword
+    document.querySelector('#generatedPassword').innerHTML = generatedPasswordSpan
     document.querySelector('#passwordToPhrase').innerHTML = joinedWords
 
     document.querySelector('#generatedPassword2').innerHTML = generatedPassword
@@ -125,7 +138,8 @@ function reset () {
 
     imageFetch(generatePrompt(newPhrase), abortController)
         .then((res) => {
-            let child = document.querySelector('#image-display-child')
+            if (res) {
+                let child = document.querySelector('#image-display-child')
             while (child.firstChild) {
                 child.removeChild(child.firstChild)
                 console.log("remove child")
@@ -139,15 +153,26 @@ function reset () {
                 img.src = res[i]
                 div.appendChild(img)
             }
-            child.appendChild(div)
+            child.appendChild(div)}
         })
     });
 
     // Event listener for "Generate Password" button
     document.querySelector('#btn-generate').addEventListener('click', function(event) {
         event.preventDefault();
+        document.querySelector('#phraseReveal').style.display = 'none';
         document.querySelector('.password-show').style.display = 'block';
+        document.querySelector('#btn-pw-check').style.display = 'none'
         document.querySelector('.password-show').scrollIntoView({ behavior: 'smooth' });
+    });
+    // Event listener for "Generate Phrase" button
+    document.querySelector('#phraseButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        intervalId = setInterval(colorShift, delay)
+        document.querySelector('#phraseReveal').style.display = 'block';
+        document.querySelector('#phraseButton').style.display = 'none'
+        document.querySelector('#btn-pw-check').style.display = 'inline-block'
+
     });
 
     //event listener to convert pw to a passphrase
@@ -195,12 +220,8 @@ function reset () {
     // When the user clicks the check password button
     document.querySelector('#btn-pw-verify').addEventListener('click', function(event) {
         event.preventDefault();
-        // checks input against generated password
+        // checks input against generated password and progresses to images if correct
         verifyPassword()
-        // progresses down to the images section
-        document.querySelector('.image-display').style.display = 'flex';
-        document.querySelector('.image-display').scrollIntoView({ behavior: 'smooth' });
-        document.querySelector('.reset').style.display = 'block';
     });
 
     document.querySelector('#resetButton').addEventListener('click', function(event) {

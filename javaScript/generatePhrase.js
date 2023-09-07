@@ -38,30 +38,11 @@ export const generatePrompt = (prompt) => {
 }
 
 // function to generate password based on phrase
-// export function phraseToPassword(phrase) {
-//     const words = phrase.split(' ');
-//     let password = '';
-  
-//     const conversionRules = {
-//       'ate': '8',
-//       'at': '@'
-//     };
-//     const arr = words.map((word)=> {
-//       const lowerWord = word.toLowerCase();
-//       if (conversionRules.hasOwnProperty(lowerWord)) {
-//         return `<span class='phLetter'> ${conversionRules[lowerWord]} </span>`;
-//       } else {
-//         return `<span class='phLetter'> ${word.charAt(0).toUpperCase()}${word.charAt(1).toLowerCase()} </span>`;
-//       }
-//     })
-//     // words.forEach((word) => {
-//     //   const lowerWord = word.toLowerCase();
-//     //   if (conversionRules.hasOwnProperty(lowerWord)) {
-//     //     password += conversionRules[lowerWord];
-//     //   } else {
-//     //     password += word.charAt(0).toUpperCase() + word.charAt(1).toLowerCase();
-//     //   }
-//     // });
+
+
+export function phraseToPasswordSpan(phrase) {
+    const words = phrase.split(' ');
+    let password = '';
   
 //     return arr.join("");
 //   }
@@ -79,20 +60,32 @@ export function phraseToPassword(phrase) {
   const arr = words.map((word, index) => {
       const lowerWord = word.toLowerCase();
       if (conversionRules.hasOwnProperty(lowerWord)) {
-          return `<span class='phLetter flip'> ${conversionRules[lowerWord]} </span>`;
-      } else {
-          if (word.length > 2) {
-              let usedChars = `<span class='phLetter slide' style='animation-delay: ${index * 0.3}s;'> ${word.charAt(0).toUpperCase()}${word.charAt(1).toLowerCase()} </span>`;
-              let unusedChars = word.substring(2).split("").map(char => {
-                  return `<span class='unusedLetter fadeOut' style='animation-delay: ${index * 0.3}s;'>${char}</span>`;
-              }).join("");
-              return usedChars + unusedChars;
-          } else {
-              return `<span class='phLetter slide' style='animation-delay: ${index * 0.3}s;'> ${word.charAt(0).toUpperCase()}${word.charAt(1).toLowerCase()} </span>`;
-          }
-      }
-  });
 
-  password = arr.join('');
-  return password;
-}
+        return `<span class='phLetter'>${conversionRules[lowerWord]}</span>`;
+      } else {
+        return `<span class='phLetter'>${word.charAt(0).toUpperCase()}${word.charAt(1).toLowerCase()}</span>`;
+      }
+    })
+    return arr.join("");
+  }
+export function phraseToPassword(phrase) {
+    const words = phrase.split(' ');
+    let password = '';
+  
+    const conversionRules = {
+      'ate': '8',
+      'at': '@'
+    };
+
+    words.forEach((word) => {
+      const lowerWord = word.toLowerCase();
+      if (conversionRules.hasOwnProperty(lowerWord)) {
+        password += conversionRules[lowerWord];
+      } else {
+        password += word.charAt(0).toUpperCase() + word.charAt(1).toLowerCase();
+      }
+    });
+  
+    return password;
+  }
+
