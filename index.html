@@ -47,19 +47,24 @@
         <section class="password-show" style="display: none;">
             <div class="container flex-container">
                 <div class="pw-gen-content card-background">
-                    <h3>A strong password would be something like: </h3>
-                    <blockquote id="generatedPassword" class="blockquote"></blockquote>
-                    <br>
-                    <p>But that's so hard to remember! </p>
-                    <br>
-                    <p>What if we converted it into a phrase? Something like...</p>
-                    <blockquote id="passwordToPhrase" class="blockquote"></blockquote>
-                    <br>
-                    <p>We can substitute certain words for numbers and symbols, so 'ate' becomes 8, and 'at' becomes @.</p>
-                    <br>
-                    <p id="nameSpot"></p>
-                    <br>
-                    <p>Bingo! We've got an easy-to-remember password!</p>
+                    <div>
+                        <h3>Your strong password is: </h3>
+                        <blockquote id="generatedPassword" class="blockquote"></blockquote>
+                        <br>
+                        <p>But that's so hard to remember! </p>
+                        <br>
+                        <p>What if we converted it into an easy-to-remember phrase?</p>
+                    </div>
+                    <button class="btn-primary" id="phraseButton">Convert to Phrase</button>
+                    <div id="phraseReveal">
+                        <blockquote id="passwordToPhrase" class="blockquote"></blockquote>
+                        <br>
+                        <p>We can substitute certain words for numbers and symbols, so 'ate' becomes 8, and 'at' becomes @.</p>
+                        <br>
+                        <p id="nameSpot"></p>
+                        <br>
+                        <p>Bingo! Now it's easy to remember our complex password!</p>
+                    </div>
                     <div class="button-group">
                         <a href="#password-check-section" class="btn-primary" id="btn-pw-check">Next</a>
                     </div>
