@@ -135,7 +135,8 @@ function reset () {
 
     imageFetch(generatePrompt(newPhrase), abortController)
         .then((res) => {
-            let child = document.querySelector('#image-display-child')
+            if (res) {
+                let child = document.querySelector('#image-display-child')
             while (child.firstChild) {
                 child.removeChild(child.firstChild)
                 console.log("remove child")
@@ -149,7 +150,7 @@ function reset () {
                 img.src = res[i]
                 div.appendChild(img)
             }
-            child.appendChild(div)
+            child.appendChild(div)}
         })
     });
 
