@@ -118,6 +118,9 @@ function reset () {
 
     document.querySelector('#generatedPassword').innerHTML = generatedPassword
     document.querySelector('#passwordToPhrase').innerHTML = joinedWords
+
+    document.querySelector('#generatedPassword2').innerHTML = generatedPassword
+    document.querySelector('#passwordToPhrase2').innerHTML = joinedWords
     document.querySelector('#nameSpot').innerHTML = `Now, let's take two letters from each word, and capitalize the first letter, so ${celebName} becomes ${generatedPassword[0]}${generatedPassword[1]}${generatedPassword[2]}${generatedPassword[3]}.`
 
     imageFetch(generatePrompt(newPhrase), abortController)
@@ -147,6 +150,20 @@ function reset () {
         document.querySelector('.password-show').scrollIntoView({ behavior: 'smooth' });
     });
 
+    //event listener to convert pw to a passphrase
+    document.querySelector('#btn-phrase-convert').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('.password-phrase').style.display = 'block';
+        document.querySelector('.password-phrase').scrollIntoView({ behavior: 'smooth' });
+    })
+
+        //event listener to show pw and passphrase combo
+        document.querySelector('#btn-pw-combo').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelector('.pass-phrase-combo').style.display = 'block';
+            document.querySelector('.pass-phrase-combo').scrollIntoView({ behavior: 'smooth' });
+        })
+    
 
     // Event listener to bring to password check section
     document.querySelector('#btn-pw-check').addEventListener('click', function(event) {

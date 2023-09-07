@@ -46,10 +46,55 @@
             </div>    
         </section>
 
+        <!-- Password Display Section -->
         <section class="password-show" style="display: none;">
             <div class="container flex-container">
                 <div class="pw-gen-content card-background">
-                    <h3>A strong password would be something like: </h3>
+                    <h3>Your new strong password is: </h3>
+                    <blockquote id="generatedPassword" class="blockquote"></blockquote>
+                    <p>But that's so hard to remember!</p>
+                    <div class="button-group">
+                        <a href="#password-phrase-section" class="btn-primary" id="btn-phrase-convert">Convert to Phrase</a>
+                    </div>
+                </div>
+            </div>    
+        </section>
+
+<!-- Password Phrase Section -->
+        <section class="password-phrase" style="display: none;">
+            <div class="container flex-container">
+                <div class="pw-gen-content card-background">
+                    <h3>What if we converted it into a phrase? Like...</h3>
+                    <blockquote id="passwordToPhrase" class="blockquote interactive"></blockquote>
+                    <!-- <div id="nameSpotInteractive"></div> -->
+                    <p>That's a memorable phrase, right?</p>
+                    <div class="button-group">
+                        <a href="#pass-phrase-combo" class="btn-primary" id="btn-pw-combo">Next</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pass-phrase-combo" style="display: none;">
+            <div class="container flex-container">
+                <div class="pw-gen-content card-background">
+                    <h3>See what we did there?</h3>
+                    <blockquote id="generatedPassword2" class="blockquote"></blockquote>
+                    <blockquote id="passwordToPhrase2" class="blockquote interactive"></blockquote>
+                    <div id="nameSpotInteractive"></div>
+                    <p>That's a memorable phrase, right?</p>
+                    <div class="button-group">
+                        <a href="#password-check-section" class="btn-primary" id="btn-pw-check">Next</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- 
+        <section class="password-show" style="display: none;">
+            <div class="container flex-container">
+                <div class="pw-gen-content card-background">
+                    <h3>Your new strong password is: </h3>
                     <blockquote id="generatedPassword" class="blockquote"></blockquote>
                     <p>But that's so hard to remember! </p>
                     <br>
@@ -65,7 +110,7 @@
                     </div>
                 </div>
             </div>    
-        </section>
+        </section> -->
 
         <section class="password-check" style="display: none;"> 
             <div class="container flex-container">
@@ -103,7 +148,6 @@
             <div class="container flex-container">
                 <div class="reset-content card-background">
                     <h3>Not a fan of that password?</h3>
-                    <h3>You can always: </h3>
                     <div class="button-group">
                         <button id="resetButton" class="btn-primary">Generate a new one</button>
                     </div>
