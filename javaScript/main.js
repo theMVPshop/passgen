@@ -135,7 +135,6 @@ function reset () {
 
     imageFetch(generatePrompt(newPhrase), abortController)
         .then((res) => {
-            if (res) {
                 let child = document.querySelector('#image-display-child')
             while (child.firstChild) {
                 child.removeChild(child.firstChild)
@@ -145,13 +144,21 @@ function reset () {
             let div = document.createElement('div')
             div.classList.add('container')
             div.classList.add('flex-container')
+            if (res) {
             for (let i = 0; i < res.length; i++) {
                 let img = document.createElement('img')
                 img.src = res[i]
                 div.appendChild(img)
             }
-            child.appendChild(div)}
-        })
+            child.appendChild(div)
+            } else {
+                let h3 = document.createElement('h4')
+                h3.innerText = "Oh no! Looks like there was a problem with the image generation! But at least you've got a secure, memorable password!"
+                div.appendChild(h3)
+                child.appendChild(div)
+            }
+            }
+        )
     });
 
     // Event listener for "Generate Password" button
